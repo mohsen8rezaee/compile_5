@@ -18,6 +18,12 @@ namespace DataLayer.Services
             db = context;
 
         }
+         
+        public IEnumerable<SymbolTable> GetAllSymbol()
+        {
+            return db.SymbolTable.ToList();
+        }
+
         public bool DeleteSymbol(SymbolTable symbol)
         {
             try
@@ -28,7 +34,7 @@ namespace DataLayer.Services
             catch (Exception)
             {
 
-                throw;
+                return false;
             }
         }
         
@@ -43,7 +49,7 @@ namespace DataLayer.Services
             catch (Exception)
             {
 
-                throw;
+                return false;
             }
         }
 
@@ -51,24 +57,38 @@ namespace DataLayer.Services
 
         public SymbolTable GetSymbolById(int id)
         {
-            throw new NotImplementedException();
+            return db.SymbolTable.Find(id);
         }
 
-        public SymbolTable GetSymbolByName(string name)
-        {
-            throw new NotImplementedException();
-        }
-
+      
         public bool InsertSymbol(SymbolTable symbol)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.SymbolTable.Add(symbol);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         
 
         public bool UpdateSymbol(SymbolTable symbol)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(symbol).State = EntityState.Modified;
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

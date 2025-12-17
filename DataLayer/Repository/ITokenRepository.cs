@@ -8,6 +8,7 @@ namespace DataLayer
 {
     public interface ITokenRepository
     {
+        IEnumerable<Token> GetAllTokens();
         bool InsertToken(Token token);
         bool DeleteAllTokens();
 

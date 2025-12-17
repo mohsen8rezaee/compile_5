@@ -8,7 +8,7 @@ namespace DataLayer
 {
     public interface IsymboleRepositry
     {
-        SymbolTable GetSymbolByName(string name);
+        IEnumerable<SymbolTable> GetAllSymbol();
         SymbolTable GetSymbolById(int id);
         bool InsertSymbol(SymbolTable symbol);
         bool DeleteSymbol(SymbolTable symbol);

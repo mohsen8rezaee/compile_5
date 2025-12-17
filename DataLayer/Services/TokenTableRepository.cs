@@ -18,6 +18,10 @@ namespace DataLayer
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Token> GetAllTokens()
+        {
+            throw new NotImplementedException();
+        }
 
         public bool InsertToken(Token token)
         {
